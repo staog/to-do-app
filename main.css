@@ -1,0 +1,8 @@
+body {
+  background-image: url('blossom.jpg');
+  background-size: cover;
+}
+.caption {
+  color: white;
+  text-shadow: 1px 1px black;
+}
