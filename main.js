@@ -26,20 +26,16 @@ inputText.addEventListener('keydown', function (e) {
 // array 'tasks' and calling function 'showNewTask'
 function submitTask() {
   var userInput = inputText.value;
-  var randomNumber = Math.ceil(Math.random() * 10000);
   var getDate = new Date();
   var setDate = getDate.toDateString();
 
   var taskToSave = {
-    id: randomNumber,
     task: userInput,
     date: setDate
   }
   tasks.push(taskToSave);
-  localStorage['tasks'] = JSON.stringify(tasks);
-
+  localStorage.tasks = JSON.stringify(tasks);
   showNewTask();
-
 }
 
 // Making empty string 'showPanel', using for loop to go through all the tasks,
@@ -57,7 +53,7 @@ function showNewTask() {
                           <h5>${tasks[i].date}</h5>
                         </div>
                        <div class="panel-footer">
-                          <button class="btn btn-danger pull-right" type="button" name="button" onclick="deleteTask(${tasks[i].id})">Delete</button>
+                          <button class="btn btn-danger pull-right deleteBtns" type="button" name="button">Delete</button>
                         <div class="clearfix"></div>
                        </div>
                        </div>
@@ -66,20 +62,20 @@ function showNewTask() {
   }
   insertToDiv.innerHTML = showPanel;
   inputText.focus();
+  // Adding event listeners to all newly created 'delete' buttons
+  var dltBtns = document.getElementsByClassName('deleteBtns');
+  for (let i = 0; i < dltBtns.length; i++) {
+    dltBtns[i].addEventListener('click', function () {
+      deleteTask(i);
+    });
+  }
 }
 
-// Deleting specific task using 'id' property to find object with that particular
-// id in array 'tasks'
-function deleteTask(id) {
-  for (var i = 0; i < tasks.length; i++) {
-    if (tasks[i].id == id) {
-      tasks.splice(i, 1);
-
-      localStorage['tasks'] = JSON.stringify(tasks);
-
+// Deleting specific task using 'x' argument (just a reference to 'i' in for loop)
+function deleteTask(x) {
+      tasks.splice(x, 1);
+      localStorage.tasks = JSON.stringify(tasks);
       showNewTask();
-    }
-  }
 }
 
 showNewTask();
