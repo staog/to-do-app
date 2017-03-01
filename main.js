@@ -35,7 +35,7 @@ function submitTask() {
 function showNewTask() {
   var showPanel = '';
   for (var i = 0; i < tasks.length; i++) {
-    showPanel += `<div class="col-lg-4">
+    showPanel += `<div class="col-sm-4 col-md-3">
                     <div class="panel panel-default">
                       <div class="panel-heading">Task No. ${i + 1}</div>
                       <div class="panel-body">
