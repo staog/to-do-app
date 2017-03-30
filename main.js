@@ -29,6 +29,7 @@ function submitTask() {
   localStorage.tasks = JSON.stringify(tasks);
 
   showNewTask();
+  inputText.value = '';
 
 }
 
