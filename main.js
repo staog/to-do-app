@@ -1,6 +1,7 @@
 if(!localStorage.tasks){
   var tasks = [];
-} else {
+} 
+else {
   var tasks = JSON.parse(localStorage.tasks);
 }
 
@@ -14,7 +15,7 @@ inputText.addEventListener('keydown', function (e) {
   if (e.keyCode === 13 && inputText.value !== '') {
     submitTask();
   }
-})
+});
 
 function submitTask() {
   var userInput = inputText.value;
@@ -24,13 +25,12 @@ function submitTask() {
   var taskToSave = {
     task: userInput,
     date: setDate
-  }
+  };
+  
   tasks.push(taskToSave);
   localStorage.tasks = JSON.stringify(tasks);
-
   showNewTask();
   inputText.value = '';
-
 }
 
 function showNewTask() {
