@@ -8,4 +8,8 @@ Together with added task, date (when it's been added) will be displayed as well.
 
 You can also delete tasks and the list will be sorted automatically.
 
-[Try it here](https://staog.github.io/to-do-app/)
+=====================================================================
+
+[DEMO](https://staog.github.io/to-do-app/)
+
+=====================================================================
