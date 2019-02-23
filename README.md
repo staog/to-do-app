@@ -1,6 +1,6 @@
 # To-Do Application
 
-To-Do App that keeps you organized. 
+Simple to do application that keeps you organized. 
 
 You can add as many tasks as you want.
 
